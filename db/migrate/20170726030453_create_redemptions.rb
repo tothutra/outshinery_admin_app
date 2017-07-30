@@ -5,6 +5,7 @@ class CreateRedemptions < ActiveRecord::Migration[5.1]
       t.integer :product_id
       t.integer :quantity
       t.date :date_redeemed
+      t.text :note
 
       t.timestamps
     end

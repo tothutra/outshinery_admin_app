@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.integer :order_id
       t.integer :client_id
       t.date :date_created
-      t.string :status
+      t.integer :total_credits
 
       t.timestamps
     end
