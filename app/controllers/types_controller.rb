@@ -8,7 +8,7 @@ class TypesController < ApplicationController
   end
 
   def show
-    @type = Type.find(param[:id])
+    @type = Type.find(params[:id])
     respond_to do |f|
       f.html {render :show}
       f.json {render json: @type}

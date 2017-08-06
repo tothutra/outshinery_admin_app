@@ -10,4 +10,11 @@ class Order < ApplicationRecord
     return credits_redeemed 
   end
 
+  def credits_avail
+    self.total_credits - self.credits_redeemed
+  end
+
+  def client_name
+    self.client.name
+  end
 end

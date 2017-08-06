@@ -8,7 +8,7 @@ class RedemptionsController < ApplicationController
   end
 
   def show
-    @redemption = Redemption.find(param[:id])
+    @redemption = Redemption.find(params[:id])
     respond_to do |f|
       f.html {render :show}
       f.json {render json: @redemption}

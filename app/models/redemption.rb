@@ -5,4 +5,8 @@ class Redemption < ApplicationRecord
   def credits_redeemed
     self.product.credit_value
   end
+
+  def product_name
+    self.product.name
+  end
 end
