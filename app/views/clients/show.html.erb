@@ -1,16 +1,24 @@
-<%= render(@client) %>
-
-<h2><%= client.name %> - <%= client.client_type %></h2>
-<p>Has ordered <%= client.total_credits_ordered %> credits</p>
-<p>Has redeemed <%= client.total_credits_redeemed %> credits</p>
-<p>Has <%= client.total_credits_avail %> credits available</p>
+<h2><%= @client.name %> - <%= type_name @client %></h2>
+<p>Has ordered <%= total_credits_ordered @client %> credits</p>
+<p>Has redeemed <%= total_credits_redeemed @client %> credits</p>
+<p>Has <%= total_credits_avail @client %> credits available</p>
 <br>
 Order history:
 <ul>
-  <% client.orders.each do |order| %>
+  <% @client.orders.each do |order| %>
     <li><%= link_to order.order_id, order_path(order)%> - on <%=%> <%= order.total_credits %> credits was ordered.</li>
   <% end %>  
 </ul>
-<p><%= link_to "Edit", edit_client_path(client) %></p>
+
+<table>
+  <tr>
+    <th>Order ID</th>
+    <th>Date order</th>
+    <th>Credits ordered</th>
+    <th>Credit available</th>
+  </tr>
+</table>
+
+<p><%= link_to "Edit", edit_client_path(@client) %></p>
 <p>Delete</p>
 <p><%= link_to "Back to client list", clients_path %></p>

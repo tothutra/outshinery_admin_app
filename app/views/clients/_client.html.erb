@@ -1,10 +1,10 @@
 <tr>
-  <td><%= client.name %></td>
-  <td><%= client.client_type %></td>
-  <td><%= client.number_of_orders %></td>
-  <td><%= client.total_credits_ordered %></td>
-  <td><%= client.total_credits_redeemed %></td>
-  <td><%= client.total_credits_avail %></td>
+  <td><%= link_to client.name, client_path(client) %></td>
+  <td><%= type_name client %></td>
+  <td><%= number_of_orders client %></td>
+  <td><%= total_credits_ordered client %></td>
+  <td><%= total_credits_redeemed client %></td>
+  <td><%= total_credits_avail client %></td>
   <td><%= link_to "Edit", edit_client_path(client) %></td>
   <td><p>Delete</p></td>
 </tr>
