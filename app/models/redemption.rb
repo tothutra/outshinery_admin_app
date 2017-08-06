@@ -3,7 +3,7 @@ class Redemption < ApplicationRecord
   belongs_to :product
 
   def credits_redeemed
-    self.product.credit_value
+    self.product.credit_value*self.quantity
   end
 
   def product_name

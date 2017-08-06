@@ -6,7 +6,7 @@
 Order history:
 <ul>
   <% @client.orders.each do |order| %>
-    <li><%= link_to order.order_id, order_path(order)%> - on <%=%> <%= order.total_credits %> credits was ordered.</li>
+    <li><%= link_to order.order_id, order_path(order)%> - on <%=%> <%= order.total_credits  %> credits was ordered.</li>
   <% end %>  
 </ul>
 
@@ -17,8 +17,17 @@ Order history:
     <th>Credits ordered</th>
     <th>Credit available</th>
   </tr>
+  <% @client.orders.each do |order| %>
+    <tr>
+      <td><a href=<%= order_path(order) %>>#00</a></td>
+      <td><%= order.date_created %></td>
+      <td><%= order.total_credits  %></td>
+      <td><%= credits_avail order %></td>
+    </tr>
+  <% end %>
 </table>
 
 <p><%= link_to "Edit", edit_client_path(@client) %></p>
 <p>Delete</p>
 <p><%= link_to "Back to client list", clients_path %></p>
+

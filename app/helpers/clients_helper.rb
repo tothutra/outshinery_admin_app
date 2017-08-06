@@ -18,7 +18,7 @@ module ClientsHelper
   def total_credits_redeemed(client)
     total_credits_redeemed = 0
     client.orders.each do |order|
-      total_credits_redeemed += order.credits_redeemed
+      total_credits_redeemed += self.credits_redeemed(order)
     end
     return total_credits_redeemed
   end

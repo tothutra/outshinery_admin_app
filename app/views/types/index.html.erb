@@ -1,0 +1,17 @@
+<h2>All Client Types</h2>
+<table>
+  <tr>
+    <th>Type Name</th>
+    <th>How many?</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @types.each do |type| %>
+    <tr>
+      <td><%= type.name %></td>
+      <td></td>
+      <td><%= link_to "Edit", edit_type_path(type) %></td>
+      <td>Delete</td>
+    </tr>
+  <% end %>
+</table>

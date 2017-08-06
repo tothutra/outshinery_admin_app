@@ -1,1 +1,31 @@
-<%= render(@order) %>
+<h2>This is order #00<%= @order.order_id %></h2>
+<p>Client: <%= client_name @order %></p>
+<p>Ordered on: <%= @order.date_created %></p>
+<p>Total value: <%= @order.total_credits %></p>
+<p>Credits available: <%= credits_avail @order %></p>
+<br>
+<p>Redemption history:</p>
+<table>
+  <tr>
+    <th>Redeemed on</th>
+    <th>Product name</th>
+    <th>Quantity</th>
+    <th>Total credit redeemed</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @order.redemptions.each do |redemption| %>
+    <tr>
+      <td><%= redemption.date_redeemed %></td>
+      <td><%= redemption.product_name %></td>
+      <td><%= redemption.quantity %></td>
+      <td><%= redemption.credits_redeemed %></td>
+      <td><%= link_to "Edit", edit_redemption_path(redemption) %></td>
+      <td>Delete</td>
+    </tr>
+  <% end %>
+</table>
+<br>
+
+<p><%= link_to "Add new redemption", new_redemption_path %></p>
+<p><%= link_to "Back to client page", client_path(@order.client) %></p>
