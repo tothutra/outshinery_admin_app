@@ -1,7 +1,16 @@
 <h1>All clients</h1>
-<ul>
-  <% @clients.each do |client|%>
-    <li><%= link_to client.name, client_path(client) %></li>
-  <% end %>
-</ul>
-<p>Add new client</p>
+<table>
+  <tr>
+    <th>Client name</th>
+    <th>Client type</th>
+    <th>No. of orders</th>
+    <th>Credit(s) ordered</th>
+    <th>Credit(s) redeemed</th>
+    <th>Credit(s) available</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <%= render(@clients)%>
+</table>
+
+<p><%= link_to "Add new client", new_client_path %></p>

@@ -7,6 +7,10 @@ class Client < ApplicationRecord
     self.type.name
   end
 
+  def number_of_orders
+    self.orders.length
+  end
+
   def total_credits_ordered
     total_credits_ordered = 0
     self.orders.each do |order|
