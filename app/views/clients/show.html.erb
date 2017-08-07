@@ -1,33 +1,52 @@
-<h2><%= @client.name %> - <%= type_name @client %></h2>
-<p>Has ordered <%= total_credits_ordered @client %> credits</p>
-<p>Has redeemed <%= total_credits_redeemed @client %> credits</p>
-<p>Has <%= total_credits_avail @client %> credits available</p>
-<br>
-Order history:
-<ul>
-  <% @client.orders.each do |order| %>
-    <li><%= link_to order.order_id, order_path(order)%> - on <%=%> <%= order.total_credits  %> credits was ordered.</li>
-  <% end %>  
-</ul>
+<div class="row">
+  <h2><%= @client.name %> - <%= type_name @client %></h2>
+</div>
 
-<table>
-  <tr>
-    <th>Order ID</th>
-    <th>Date order</th>
-    <th>Credits ordered</th>
-    <th>Credit available</th>
-  </tr>
-  <% @client.orders.each do |order| %>
+<div class="row">
+  <div class="col-md-4">
+    <p>Has ordered <%= total_credits_ordered @client %> credits</p>
+  </div>
+  <div class="col-md-4">
+    <p>Has redeemed <%= total_credits_redeemed @client %> credits</p>
+  </div>
+  <div class="col-md-4">
+    <p>Has <%= total_credits_avail @client %> credits available</p>
+  </div>
+</div>
+
+<div class="row">
+  <h4>Order history:</h4>
+</div>
+
+<div class="row table-responsive">
+  <table class="table table-striped">
     <tr>
-      <td><a href=<%= order_path(order) %>>#00</a></td>
-      <td><%= order.date_created %></td>
-      <td><%= order.total_credits  %></td>
-      <td><%= credits_avail order %></td>
+      <th>Order ID</th>
+      <th>Date order</th>
+      <th>Credits ordered</th>
+      <th>Credit available</th>
     </tr>
-  <% end %>
-</table>
+    <% @client.orders.each do |order| %>
+      <tr>
+        <td><a href=<%= order_path(order) %>>#00<%= order.order_id %>
+        <td><%= order.total_credits  %></td>
+        <td><%= order.credits_avail  %></td>
+      </tr>
+    <% end %>
+  </table>  
+</div>
 
-<p><%= link_to "Edit", edit_client_path(@client) %></p>
-<p>Delete</p>
-<p><%= link_to "Back to client list", clients_path %></p>
+<div class="row">
+  <p><%= link_to "Edit", edit_client_path(@client) %></p>
+</div>
+<div class="row">
+  <p>Delete</p>
+</div>
+<div class="row">
+  <p><%= link_to "Back to client list", clients_path %></p>
+</div>
+
+
+
+
 

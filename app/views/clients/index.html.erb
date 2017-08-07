@@ -1,16 +1,22 @@
-<h1>All clients</h1>
-<table>
-  <tr>
-    <th>Client name</th>
-    <th>Client type</th>
-    <th>No. of orders</th>
-    <th>Credit(s) ordered</th>
-    <th>Credit(s) redeemed</th>
-    <th>Credit(s) available</th>
-    <th></th>
-    <th></th>
-  </tr>
-  <%= render(@clients)%>
-</table>
+<div class="row">
+  <h1 >All clients</h1>
+</div>
 
-<p><%= link_to "Add new client", new_client_path %></p>
+<div class="row table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <th>Client name</th>
+      <th>Client type</th>
+      <th>No. of orders</th>
+      <th>Credit(s) ordered</th>
+      <th>Credit(s) redeemed</th>
+      <th>Credit(s) available</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <%= render(@clients)%>
+  </table> 
+</div>
+<div class="row">
+  <p><%= link_to "Add new client", new_client_path %></p>
+</div>
